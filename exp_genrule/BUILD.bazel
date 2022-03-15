@@ -1,0 +1,9 @@
+genrule(
+    name = "envinfo",
+    srcs = [
+        "a.txt",
+        "b.txt",
+    ],
+    outs = ["envinfo.txt"],
+    cmd_bash = """( env; echo "-----"; pwd; ls -l; echo "-----"; whoami; echo "outs = $@" ) | tee $@""",
+)
